@@ -115,9 +115,18 @@ python scripts/coach.py calibration <会话> --apply   # 把系统性偏差写�
 
 ## 快速开始
 
-**需要**：Python 3.10+（脚本用了 3.10 的联合类型写法），无需 `pip install` 任何东西。
+**需要**：WorkBuddy / Claude Code（任一支持 `SKILL.md` 的 Agent）。Python 3.10+ —— WorkBuddy 自带运行时，不用自己装。零第三方依赖。
 
-### 装成技能
+### 一句话安装
+
+在**你自己的 WorkBuddy 里**发这句话：
+
+> 帮我把 https://github.com/mike1-cmd/efficient-learning 装成技能
+
+它会下载、复制到 `~/.workbuddy/skills/efficient-learning`、跑完 295 项自测再回报。
+完整执行步骤在 [INSTALL.md](INSTALL.md)——那份是给 AI 看的，你只要发上面那句。
+
+### 手动安装
 
 ```bash
 git clone https://github.com/mike1-cmd/efficient-learning.git
@@ -126,8 +135,6 @@ cp -r efficient-learning ~/.workbuddy/skills/efficient-learning
 
 Claude Code 用户放到 `~/.claude/skills/efficient-learning`；
 项目级共享放到 `<项目>/.workbuddy/skills/`。
-
-或者让 AI 自己装：把仓库目录拖进对话框，说「装到我的用户技能目录」。
 
 装完**新开一个对话**（已开着的会话读不到新技能），说：
 
