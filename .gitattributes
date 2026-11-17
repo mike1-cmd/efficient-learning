@@ -1,0 +1,7 @@
+# 统一换行，Windows 上检出的 .py 也保持 LF（避免脚本被 CRLF 弄出 diff 噪音）
+* text=auto eol=lf
+
+*.py text diff=python
+*.md text
+*.yml text
+*.json text
