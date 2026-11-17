@@ -7,6 +7,8 @@
 [![dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](.)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
+English · [中文](README.md)
+
 Give it a topic. It walks you through six gated stages: **target → diagnose → core → practice → map → retest**.
 Every stage must leave a verifiable artifact on disk; `scripts/stage.py` checks it and blocks `advance` if anything is missing.
 

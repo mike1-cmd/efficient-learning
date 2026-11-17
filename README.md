@@ -7,6 +7,8 @@
 [![dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](.)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
+[English](README.en.md) · 中文
+
 给它一个主题，它按固定六阶带你走：定靶 → 测 → 核心 → 实操 → 图谱 → 回测。
 每一步都要落盘产物、过脚本校验，**没过不许进下一阶**。
 闭环通过只算「当场会」；要判「已掌握」，还得在至少两个不同日子靠无提示回忆想起来。
