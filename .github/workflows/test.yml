@@ -1,0 +1,49 @@
+name: test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  selftest:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Run regression suite
+        run: python scripts/selftest.py
+
+  install-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Skill layout is valid
+        run: |
+          test -f SKILL.md
+          head -1 SKILL.md | grep -q '^---$'
+          grep -q '^name: efficient-learning' SKILL.md
+          for f in scripts/stage.py scripts/coach.py scripts/scheduler.py scripts/new_session.py; do
+            test -f "$f" || { echo "missing $f"; exit 1; }
+          done
+          python -c "import ast,pathlib;[ast.parse(p.read_text(encoding='utf-8')) for p in pathlib.Path('scripts').glob('*.py')]"
+
+      - name: Create a session and run one gate check
+        run: |
+          python scripts/new_session.py "smoke-test" --path /tmp/learn
+          d=$(ls -d /tmp/learn/*/ | head -1)
+          python scripts/stage.py status "$d"
