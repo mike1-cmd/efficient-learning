@@ -2,6 +2,11 @@
 
 **An AI learning coach that refuses to let you skip steps.**
 
+[![test](https://github.com/mike1-cmd/efficient-learning/actions/workflows/test.yml/badge.svg)](https://github.com/mike1-cmd/efficient-learning/actions/workflows/test.yml)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
+[![dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](.)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
 Give it a topic. It walks you through six gated stages: **target → diagnose → core → practice → map → retest**.
 Every stage must leave a verifiable artifact on disk; `scripts/stage.py` checks it and blocks `advance` if anything is missing.
 
